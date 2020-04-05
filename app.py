@@ -18,7 +18,7 @@ app = Flask(__name__)
 # Check https://keras.io/applications/
 from tensorflow.keras.applications.resnet50 import ResNet50
 model = ResNet50(weights='imagenet')
-model.save('')
+#model.save('')
 print('Model loaded. Check http://127.0.0.1:5000/')
 
 
