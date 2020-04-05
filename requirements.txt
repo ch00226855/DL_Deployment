@@ -5,4 +5,4 @@ werkzeug
 gunicorn
 Jinja2
 MarkupSafe
-PIL
+pillow
