@@ -1,4 +1,3 @@
-# coding=utf-8
 import os
 import numpy as np
 
@@ -7,18 +6,15 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decod
 from tensorflow.keras.preprocessing import image
 
 # Flask utils
-from flask import Flask, request, render_template #, redirect, url_for
+from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
-#from gevent.pywsgi import WSGIServer
 
 # Define a flask app
 app = Flask(__name__)
 
 # Use pretrained model from Keras
-# Check https://keras.io/applications/
 from tensorflow.keras.applications.resnet50 import ResNet50
 model = ResNet50(weights='imagenet')
-#model.save('')
 print('Model loaded. Check http://127.0.0.1:5000/')
 
 
@@ -56,7 +52,6 @@ def upload():
         preds = model_predict(file_path, model)
 
         # Process your result for human
-        # pred_class = preds.argmax(axis=-1)            # Simple argmax
         pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
         result = str(pred_class[0][0][1])               # Convert to string
         return result
