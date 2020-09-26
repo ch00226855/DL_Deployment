@@ -1,5 +1,5 @@
 flask
-tensorflow==1.15
+tensorflow==1.15.4
 numpy
 werkzeug
 gunicorn
